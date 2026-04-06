@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>访客留言表单</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      background: #fdf2f8;
+      border-radius: 18px;
+      box-shadow: 0 4px 32px rgba(40,60,90,0.07);
+      padding: 1.8rem 1.5rem;
+      max-width: 400px;
+      width: 90vw;
+      margin: 2rem auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      margin: 0.2em 0 1em 0;
+      font-size: 2em;
+      font-weight: 700;
+      color: #e6e481;
+      text-align: center;
+    }
+    /* 前端表单部分 */
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    label {
+      align-self: flex-start;
+      font-size: 1em;
+      margin-bottom: 0.25em;
+      color: #2a80eb;
+      margin-top: 1em;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 0.75em 1em;
+      margin-bottom: 0.5em;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 1em;
+      background: #fff;
+      resize: none;
+      box-sizing: border-box;
+      transition: border 0.2s;
+    }
+    input[type="text"]:focus, textarea:focus {
+      border-color: #10B981;
+      outline: none;
+      background: #f0fdf4;
+    }
+    textarea {
+      height: 100px;
+      min-height: 80px;
+      max-height: 250px;
+      line-height: 1.5;
+    }
+    button {
+      background: linear-gradient(270deg, #10B981 0%, #2a80eb 100%);
+      color: white;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 8px;
+      padding: 0.8em 2.5em;
+      margin-top: 1em;
+      cursor: pointer;
+      font-weight: bold;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 6px rgba(16,185,129,0.06);
+      transition: background 0.18s;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #0e7e58 0%, #2a80eb 100%);
+    }
+    @media (max-width: 500px) {
+      .container {
+        padding: 1.2rem 0.7rem;
+        max-width: 96vw;
+      }
+      h1 {
+        font-size: 1.3em;
+      }
+      input[type="text"], textarea {
+        font-size: 0.98em;
+        padding: 0.62em 0.9em;
+      }
+      button {
+        width: 100%;
+        padding: 0.8em 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>访客留言表单</h1>
+    <!-- 前端表单部分 开始 -->
+    <form id="guestbook-form" autocomplete="off">
+      <label for="name">姓名：</label>
+      <input type="text" id="name" name="name" placeholder="欢迎留下您的昵称~" required maxlength="20" />
+
+      <label for="message">留言内容：</label>
+      <textarea id="message" name="message" placeholder="说点什么吧..." required maxlength="200"></textarea>
+
+      <button type="submit">发送我的留言✨</button>
+    </form>
+    <!-- 前端表单部分 结束 -->
+  </div>
+  <script>
+    // 表单提交成功提示
+    document.getElementById('guestbook-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('提交成功，感谢您的留言！');
+      // 可选：清空表单
+      this.reset();
+    });
+  </script>
+</body>
+</html>
